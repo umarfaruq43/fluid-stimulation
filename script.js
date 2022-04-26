@@ -61,11 +61,11 @@ let config = {
   DYE_RESOLUTION: 1024,
   CAPTURE_RESOLUTION: 512,
   DENSITY_DISSIPATION: 1,
-  VELOCITY_DISSIPATION: 0.2,
+  VELOCITY_DISSIPATION: 0.1,
   PRESSURE: 0.8,
   PRESSURE_ITERATIONS: 20,
   CURL: 1,
-  SPLAT_RADIUS: 0.17,
+  SPLAT_RADIUS: 0.05,
   SPLAT_FORCE: 6000,
   SHADING: true,
   COLORFUL: true,
@@ -81,7 +81,7 @@ let config = {
   BLOOM_SOFT_KNEE: 0.7,
   SUNRAYS: true,
   SUNRAYS_RESOLUTION: 196,
-  SUNRAYS_WEIGHT: 1.0,
+  SUNRAYS_WEIGHT: 0.55,
 };
 
 function pointerPrototype() {
@@ -1389,8 +1389,8 @@ function createTextureAsync(url) {
   image.onload = () => {
     obj.width = image.width;
     obj.height = image.height;
-    // gl.bindTexture(gl.TEXTURE_2D, texture);
-    // gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);
   };
   image.src = url;
 
